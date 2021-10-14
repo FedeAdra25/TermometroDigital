@@ -12,12 +12,12 @@
 
 int main (void)
  { 
-     uint8_t  d =  0;
+     uint16_t  d =  0;
      spi_init();
     LCDinit();
    // Write your code here
    while (1){
-     d = spi_transfer('A') ;
+     d = spi_receive() ;
       LCDsendChar(d);
    }
    return 0;

@@ -11,7 +11,7 @@ SHELL = C:\WINDOWS\system32\cmd.exe
 
 ## Tools general options
 ASMFLAGS=--cpu=cortex-m3 --thumb -g
-CCFLAGS=--cpu=cortex-m3 --thumb -I.. -I../../../../../../../Keil_v5/ARM/CMSIS/Include -g
+CCFLAGS=--cpu=cortex-m3 --thumb -I.. -I../../../../../../../../Keil_v5/ARM/CMSIS/Include -g
 LDFLAGS=--scatter ../stm32f103x6.sct
 
 ## Processing Tools
@@ -19,19 +19,19 @@ CC=armcc.exe
 LD=armlink.exe
 ASM=armasm.exe
 BIN2HEX=fromelf.exe
-#  C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/Debug.elf: TOOL=LD
-#     C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/main.o: TOOL=CC
-#        C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/main.c
-#     C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/SYSTEM~1.o: TOOL=CC
-#        C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/system_stm32f1xx.c
-#     C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/STARTU~1.o: TOOL=ASM
-#        C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/startup_stm32f103.s
-#     C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/spi.o: TOOL=CC
-#        C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/spi.c
-#     C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/lcd.o: TOOL=CC
-#        C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/lcd.c
-#     C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/Debug/utils.o: TOOL=CC
-#        C:/Users/jeron/Documents/GitHub/TermometroDigital/STM32F103C6/utils.c
+#  C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/Debug.elf: TOOL=LD
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/main.o: TOOL=CC
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/main.c
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/SYSTEM~1.o: TOOL=CC
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/system_stm32f1xx.c
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/STARTU~1.o: TOOL=ASM
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/startup_stm32f103.s
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/spi.o: TOOL=CC
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/spi.c
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/lcd.o: TOOL=CC
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/lcd.c
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/utils.o: TOOL=CC
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/utils.c
 
 # Build tree:
 all:	Debug
