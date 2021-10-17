@@ -1,12 +1,19 @@
 #include <spi.h>
+#include <stdint.h.>
+
 
 void spi_init () {
    //Habilito el reloj en el periferico
    RCC -> APB2ENR |= 0xFC | (1<<12) ; 
    //Bit 7 y 5 del registro A como salida alternativa, el 6 como entrada 
    GPIOA-> CRL = 0xB4B34444;
-   //Configuro un baudrate de 3 (divido la frecuencia por 8), enciendo el dispositivo, y formato de datos 0 (8 bits) 
-   SPI1 -> CR1 = 0x35C;
+   //Configuro un baudrate de 4 (divido la frecuencia por 16 ya que maf freq del TC72 = 7,5 Mhz ), enciendo el dispositivo, y formato de datos 0 (8 bits) 
+   //SPI1 -> CR1 = 0x364;
+   SPI1 -> CR1 = 0x35D;
+   GPIOA->BSRR = (1<<4);
+   spi_transfer(0x80); 
+   spi_transfer(0x04); 
+   GPIOA->BRR = (1<<4);
 }
 
 uint8_t spi_transfer (uint8_t data) {
@@ -16,14 +23,16 @@ uint8_t spi_transfer (uint8_t data) {
 }
 
 uint16_t spi_receive () {
-   uint16_t data = 0;
-   uint8_t aux = 0;
+   uint16_t res = 0;
+   uint8_t ent =0;
+   uint8_t dec = 0;
+   GPIOA->BSRR = (1<<4);
+   spi_transfer(0x02);
+   ent = spi_transfer(0);
+   dec = spi_transfer(0); // Transamito basura, solo sirve para leer el registro
+   spi_transfer(0);
    GPIOA->BRR = (1<<4);
-   spi_transfer(0x02h); //Transmito la direccion 2 hexa indicando que voy a leer los datos de ahi
-   aux = spi_transfer(0); // Transamito basura, solo sirve para leer el registro
-   data = aux;
-   aux = spi_transfer(0); // Transamito basura, solo sirve para leer el registro
-   data = data + (aux >>8);
-   GPIOA->BRR = (0<<4);
-   return data;
+   res = ((uint16_t) (ent << 8)) | dec;
+   return res;
 }
+

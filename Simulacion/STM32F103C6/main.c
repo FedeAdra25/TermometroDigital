@@ -5,20 +5,19 @@
  * Compiler:  Keil for ARM
  */
 
-#include <stm32f103x6.h>
-#include <spi.h>
-#include <lcd.h>
-#include <stdint.h.>
+#include <main.h>
 
 int main (void)
- { 
-     uint16_t  d =  0;
-     spi_init();
+ {
+    uint16_t d = 0;
+    RCC->APB2ENR |= 0xFC;
+    spi_init();
     LCDinit();
    // Write your code here
-   while (1){
-     d = spi_receive() ;
-      LCDsendChar(d);
-   }
+   while (1) {
+    d= spi_receive();
+    LCDsendChar(d);
+   delay_ms(200);
+  }
    return 0;
  }   
