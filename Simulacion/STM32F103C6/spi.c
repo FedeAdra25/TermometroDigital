@@ -32,7 +32,26 @@ uint16_t spi_receive () {
    dec = spi_transfer(0); // Transamito basura, solo sirve para leer el registro
    spi_transfer(0);
    GPIOA->BRR = (1<<4);
-   res = ((uint16_t) (ent << 8)) | dec;
+   res = 256U * ent + dec;
    return res;
+}
+
+uint8_t spi_receiveHigh () {
+   uint8_t data = 0;
+   GPIOA->BSRR = (1<<4);
+   spi_transfer(0x02);
+   data= spi_transfer(0);
+   GPIOA->BRR = (1<<4);
+   return data;
+   
+}
+
+uint8_t spi_receiveLow () {
+   uint8_t data = 0;
+   GPIOA->BSRR = (1<<4);
+   spi_transfer(0x01);
+   data= spi_transfer(0);
+   GPIOA->BRR = (1<<4);
+   return data;
 }
 

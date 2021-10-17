@@ -8,5 +8,7 @@
 void spi_init (void);
 uint8_t spi_transfer (uint8_t );
 uint16_t spi_receive (void);
+uint8_t spi_receiveHigh (void) ;
+uint8_t spi_receiveLow (void) ;
 
 #endif

@@ -32,14 +32,16 @@ BIN2HEX=fromelf.exe
 #        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/lcd.c
 #     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/utils.o: TOOL=CC
 #        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/utils.c
+#     C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/Debug/seos.o: TOOL=CC
+#        C:/Users/jeron/Documents/GitHub/TermometroDigital/Simulacion/STM32F103C6/seos.c
 
 # Build tree:
 all:	Debug
 
 Debug:	Debug.elf
 
-Debug.elf:	main.o SYSTEM~1.o STARTU~1.o spi.o lcd.o utils.o 
-	$(LD)  $(LDFLAGS)  "main.o" "SYSTEM~1.o" "STARTU~1.o" "spi.o" "lcd.o" "utils.o" --output "Debug.elf"
+Debug.elf:	main.o SYSTEM~1.o STARTU~1.o spi.o lcd.o utils.o seos.o 
+	$(LD)  $(LDFLAGS)  "main.o" "SYSTEM~1.o" "STARTU~1.o" "spi.o" "lcd.o" "utils.o" "seos.o" --output "Debug.elf"
 
 main.o:	../main.c 
 	$(CC) $(CCFLAGS)  "../main.c" -c -o "main.o"
@@ -59,6 +61,9 @@ lcd.o:	../lcd.c
 utils.o:	../utils.c 
 	$(CC) $(CCFLAGS)  "../utils.c" -c -o "utils.o"
 
+seos.o:	../seos.c 
+	$(CC) $(CCFLAGS)  "../seos.c" -c -o "seos.o"
+
 # tidy - delete all temporary files which are not involved in the target generation
 tidy:
 
@@ -71,3 +76,4 @@ clean:	tidy
 	rm -rf spi.o
 	rm -rf lcd.o
 	rm -rf utils.o
+	rm -rf seos.o

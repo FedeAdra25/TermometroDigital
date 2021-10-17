@@ -6,6 +6,7 @@
 #include <lcd.h>
 #include <stdint.h>
 #include <utils.h>
+#include <seos.h>
 
 
 #endif
