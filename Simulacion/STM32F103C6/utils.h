@@ -2,7 +2,7 @@
 #define UTILS_H_
 #include <stm32f103x6.h>
 #ifndef F_CPU
-#define F_CPU 72000000
+#define F_CPU 8000000
 #endif
 
 #define CONST_FOR_US_DELAY 12

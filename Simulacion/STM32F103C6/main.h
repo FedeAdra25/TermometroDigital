@@ -5,6 +5,7 @@
 #include <spi.h>
 #include <lcd.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <utils.h>
 #include <seos.h>
 

@@ -7,15 +7,17 @@
 
 #include <main.h>
 
-int main (void)
- {
-    RCC->APB2ENR |= 0xFC;
+int main (void){
+	
+	RCC->APB2ENR |= 0xFC;
     spi_init();
     LCDinit();
+	SEOS_Init();
    // Write your code here
-   while (1) {
-   seos_FormatTemp();
-   delay_ms(200);
-  }
-   return 0;
- }   
+	LCDGotoXY(0,0);
+	LCDstring("TEMP EN GRADOS C",16);
+	while (1) {
+		SEOS_Dispatch_Tasks();
+	}
+	return 0;
+} 
