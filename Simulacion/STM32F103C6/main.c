@@ -10,7 +10,7 @@
 int main (void){
 	
 	RCC->APB2ENR |= 0xFC;
-    spi_init();
+    TC72Init();
     LCDinit();
 	SEOS_Init();
    // Write your code here
