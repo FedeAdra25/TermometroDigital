@@ -28,7 +28,7 @@ uint8_t i;
 //¡¡Setea los pines!!
 void LCDinit(){  
    
-  LCD_PORT = 0x33333333;    		/* PB0-PB0 as outputs */
+  LCD_PORT = 0x44333333;    		/* PB0-PB0 as outputs */
   LCD_PIN_OUT &= ~(1<<LCD_EN);  	//LCD_EN=0
 
   delay_ms(3);              			//Delay de 3ms
