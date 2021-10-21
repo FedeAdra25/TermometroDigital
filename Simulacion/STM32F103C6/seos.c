@@ -16,9 +16,9 @@ void seos_FormatTemp (void);
 
 void SEOS_Init(){
 	//configuro SysTick para interrupciones cada 100 ms
-	//SysTick->LOAD = (uint32_t)7199999; //T=100ms para fclk=72MHz, 
-	//SysTick->LOAD = (uint32_t)799999; //T=100ms para fclk = 8MHz, 
-	SysTick->LOAD = (uint32_t)1599999; //T= 200ms para fclk=8MHz
+	//SysTick->LOAD = 7199999UL; //T=100ms para fclk=72MHz, 
+	//SysTick->LOAD = 799999UL; //T=100ms para fclk = 8MHz, 
+	SysTick->LOAD = 1599999UL; //T= 200ms para fclk=8MHz
 	SysTick->CTRL = 0x3;
 }
 
