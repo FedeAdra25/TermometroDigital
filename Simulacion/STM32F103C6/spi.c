@@ -1,5 +1,5 @@
 #include <spi.h>
-#include <stdint.h.>
+#include <stdint.h>
 
 
 void spi_init () {

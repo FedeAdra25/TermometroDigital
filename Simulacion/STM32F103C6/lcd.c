@@ -35,7 +35,7 @@ void LCDinit(){
   LCDsendCommand(0x33);          		//Send $33 for init
   LCDsendCommand(0x32);          		//Send $32 for init
   LCDsendCommand(0x28);          		//Init LCD 2 line, 5x7 Matrix
-  LCDsendCommand(0x0e);          		//Display On, Curson On
+  LCDsendCommand(0x0c);          		//Display On, Curson On
   LCDsendCommand(0x01);          		//Clear LCD
 
   delay_ms(2);              			//Delay de 2ms
