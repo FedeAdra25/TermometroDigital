@@ -23,7 +23,6 @@ void SEOS_Init(){
 }
 
 void SEOS_Dispatch_Tasks(){
-	
 	if(Flag==1){ //Esto corre cada 200ms
 		seos_FormatTemp();
 		Flag=0;
@@ -36,7 +35,7 @@ void SysTick_Handler() //Esto corre cada 200ms
 }
 
 void seos_FormatTemp () {
-	unsigned char* temp= TC72getTemperature();
-	LCDGotoXY(4,1);
-	LCDstring(temp,7);
+	unsigned char* temp= TC72getTemperature(); //guardo la temperatura en un string
+	LCDGotoXY(4,1); //me posiciono en el LCD para escribir
+	LCDstring(temp,7); //escribo temperatura en el LCD
 }
